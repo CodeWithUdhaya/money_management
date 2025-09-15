@@ -1,0 +1,143 @@
+/* Background */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* Card */
+.login-card {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Title */
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Labels */
+.form-group label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+/* Inputs */
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+  border: 1px solid #2575fc;
+  box-shadow: 0px 0px 5px rgba(37, 117, 252, 0.5);
+}
+
+/* Button */
+.login-btn {
+  background: #2575fc;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background: #1a5edb;
+}
+
+/* Signup text */
+.signup-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.signup-text a {
+  color: #2575fc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------- Media Queries ---------------- */
+
+/* Tablets (landscape and portrait) */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 25px 30px;
+    max-width: 350px;
+  }
+
+  .login-title {
+    font-size: 22px;
+  }
+
+  .login-btn {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .login-title {
+    font-size: 20px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .login-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .signup-text {
+    font-size: 13px;
+  }
+}
