@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 60px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-bottom: 2px solid white;
+  position: relative;
+}
+
+.title{
+ color: rgb(40, 40, 40);
+ margin-left: 20px;
+}
+
+.date{
+    background-color: rgb(110, 105, 105);
+    border:2px solid white;
+    font-size: small;
+    padding: 8px;
+    color: rgb(182, 180, 180);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+    margin-right: 25px;
+}
+
+.calender {
+    position: absolute; 
+    left: 500px;
+    top: 300px;
+    width: 100%;
+    max-width: 600px;
+    background-color: aqua;
+    /* margin: 20px 0;    */
+    height: auto;
+    /* z-index: 1;  */
+
+}
