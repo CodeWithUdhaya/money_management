@@ -2,7 +2,7 @@ import React from 'react'
 import "../UserModules/Dashboard.css"
 import Nav from "../../components/Nav"
 import CategoryChart from '../../components/CategoryChart';
-import { loginApi } from '../../ApiUtils/LoginApi';
+import { getExpenses, loginApi } from '../../ApiUtils/Api';
 
 const Dashboard = () => {
 
@@ -19,6 +19,13 @@ const Dashboard = () => {
                 "password": "Udhaya@123"
                })
             console.log("dashboard "+data);   
+  }
+  const  handleExpense = async () =>{
+          const data = await getExpenses({
+                "month":9,
+                "year":2024
+               })
+            console.log("Expense "+Json.stringify(data));   
   }
 
   return (
@@ -70,6 +77,7 @@ const Dashboard = () => {
 
           </table>
           <button onClick={handleLogin}>Login</button>
+          <button onClick={handleExpense}>expense</button>
           <CategoryChart/>
       </div>
 
