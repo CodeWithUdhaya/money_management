@@ -1,25 +1,24 @@
 import {React,useState} from "react";
 import "./Login.scss";
 import { loginApi } from '../../ApiUtils/Api';
-
- 
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-
+  const navigate = useNavigate(); 
    const [username,setUsername]= useState("");
    const [password,setPassword]= useState("");
    const [loading,isLoading]= useState(false);
 
-   const handleLogin = async (e) =>{
-         e.preventDefault();
-        isLoading(true);
-          const data = await loginApi({
-                "username": username,
-                "password": password
-               })
-            console.log("dashboard "+data); 
-            isLoading(false) ;
-  }
+  //  const handleLogin = async (e) =>{
+  //        e.preventDefault();
+  //       isLoading(true);
+  //         const data = await loginApi({
+  //               "username": username,
+  //               "password": password
+  //              })
+  //           console.log("dashboard "+data); 
+  //           isLoading(false) ;
+  // }
 
    const handleUsername = (e) => {
   setUsername(e.target.value);
@@ -40,7 +39,7 @@ const Login = () => {
           <div className="input-group">
             <input type="password" placeholder="Password" onChange={handlePassword}required />
           </div>
-          <button type="submit" className="login-btn" onClick={handleLogin}>Login</button>
+          <button type="submit" className="login-btn" onClick={()=>navigate("/dashboard")} >Login</button>
           <a href="#" className="register-link">Register</a>
         </form>
       </div>
