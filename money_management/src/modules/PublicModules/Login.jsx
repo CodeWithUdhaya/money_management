@@ -9,16 +9,17 @@ const Login = () => {
    const [password,setPassword]= useState("");
    const [loading,isLoading]= useState(false);
 
-  //  const handleLogin = async (e) =>{
-  //        e.preventDefault();
-  //       isLoading(true);
-  //         const data = await loginApi({
-  //               "username": username,
-  //               "password": password
-  //              })
-  //           console.log("dashboard "+data); 
-  //           isLoading(false) ;
-  // }
+   const handleLogin = async (e) =>{
+         e.preventDefault();
+        isLoading(true);
+          const data = await loginApi({
+                "username": username,
+                "password": password
+               })
+            console.log("dashboard "+data); 
+            isLoading(false) ;
+            navigate("/dashboard")
+  }
 
    const handleUsername = (e) => {
   setUsername(e.target.value);
@@ -29,7 +30,7 @@ const Login = () => {
 
   return (
     <div className="login-page">
-      {isLoading && <p>Loading.........</p>}
+      {loading && <p>Loading.........</p>}
       <div className="login-container">
         <h1>Money Management</h1>
         <form>
@@ -39,7 +40,7 @@ const Login = () => {
           <div className="input-group">
             <input type="password" placeholder="Password" onChange={handlePassword}required />
           </div>
-          <button type="submit" className="login-btn" onClick={()=>navigate("/dashboard")} >Login</button>
+          <button type="submit" className="login-btn" onClick={()=>handleLogin} >Login</button>
           <a href="#" className="register-link">Register</a>
         </form>
       </div>
