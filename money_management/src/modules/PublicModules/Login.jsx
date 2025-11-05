@@ -12,12 +12,13 @@ const Login = () => {
    const handleLogin = async (e) =>{
          e.preventDefault();
         isLoading(true);
-          const data = await loginApi({
+          const response = await loginApi({
                 "username": username,
                 "password": password
                })
-            console.log("dashboard "+data); 
+            console.log("dashboard "+JSON.stringify(response)); 
             isLoading(false) ;
+            if(response.data.statusCode === 200)
             navigate("/dashboard")
   }
 
@@ -40,7 +41,7 @@ const Login = () => {
           <div className="input-group">
             <input type="password" placeholder="Password" onChange={handlePassword}required />
           </div>
-          <button type="submit" className="login-btn" onClick={()=>handleLogin} >Login</button>
+          <button type="submit" className="login-btn" onClick={handleLogin} >Login</button>
           <a href="#" className="register-link">Register</a>
         </form>
       </div>

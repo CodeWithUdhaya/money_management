@@ -2,26 +2,26 @@ import React, { useEffect, useState } from 'react'
 import "../UserModules/Dashboard.scss"
 import Nav from "../../components/Nav"
 import CategoryChart from '../../components/CategoryChart';
+import { getExpenses } from '../../ApiUtils/Api';
 
 const Dashboard = () => {
 
   const [loading,setLoading] = useState(true);
+  const [expenseList,setExpensesList]=useState([]);
 
-  useEffect(()=>{
-    const timer = setTimeout(()=>{
-      setLoading(false)
-    },1500)
-
-    return ()=> clearTimeout(timer)
+  useEffect( ()=>{
+         fetchExpenses({});
   },[])
 
-  const students = [
-    { id: 1099, name: "Udhayakumar", course: "Java" },
-    { id: 3222, name: "Arun", course: "React" },
-    { id: 2020, name: "Priya", course: "Spring Boot" },
-   
 
-  ];
+  const fetchExpenses = async (params) => {
+     const response =  await getExpenses(params)
+        setExpensesList(response?.data?.content)
+        setInterval(() =>{
+             setLoading(!loading)
+        },500)  
+  }
+
   if(loading){
     return (
       <div className="dashboard-skeleton">
@@ -57,19 +57,24 @@ const Dashboard = () => {
       <table className='expenses-table'>
         <thead>
           <tr>
-            <th>#</th>
+            <th>Id</th>
             <th>Category</th>
-            <th>Amount</th>
+            <th>Description</th>
             <th>Date</th>
+            <th>Amount</th>
           </tr>
         </thead>
         <tbody>
-        { students.map((student,index) =>
+           {
+            !expenseList && <p>No expenses Found! </p>
+}
+           { expenseList && expenseList.map((expense,index) =>
           <tr key={index}>
             <td>{index+1}</td>
-            <td>{student.id}</td>
-            <td>{student.name}</td>
-            <td>{student.course}</td>
+            <td>{expense.category}</td>
+            <td>{expense.description}</td>
+            <td>{expense.date}</td>
+            <td>{expense.amount}</td>
           </tr>
         )}
         </tbody>
