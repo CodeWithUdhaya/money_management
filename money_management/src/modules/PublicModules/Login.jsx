@@ -2,12 +2,14 @@ import {React,useState} from "react";
 import "./Login.scss";
 import { loginApi } from '../../ApiUtils/Api';
 import { useNavigate } from "react-router-dom";
+import Alert from "../../components/Alert";
 
 const Login = () => {
   const navigate = useNavigate(); 
    const [username,setUsername]= useState("");
    const [password,setPassword]= useState("");
    const [loading,isLoading]= useState(false);
+   const [notification, setNotification] = useState({ message: "", type: "" });
 
    const handleLogin = async (e) =>{
          e.preventDefault();
@@ -16,10 +18,21 @@ const Login = () => {
                 "username": username,
                 "password": password
                })
-            console.log("dashboard "+JSON.stringify(response)); 
             isLoading(false) ;
-            if(response.data.statusCode === 200)
-            navigate("/dashboard")
+            if(response.data.statusCode !== 200){
+              setNotification({
+                message: response.data.message,
+                type: 'error'
+              })
+            }else{
+              
+               setNotification({
+                message: response.data.data.Message,
+                type: 'success'
+              })
+              setTimeout(() => {navigate("/dashboard")},2000) 
+            }
+            
   }
 
    const handleUsername = (e) => {
@@ -31,6 +44,11 @@ const Login = () => {
 
   return (
     <div className="login-page">
+      <Alert
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification({ message: "", type: "" })}
+        />
       {loading && <p>Loading.........</p>}
       <div className="login-container">
         <h1>Money Management</h1>
