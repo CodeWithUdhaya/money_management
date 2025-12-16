@@ -1,0 +1,92 @@
+.dashboard {
+  width: 100vw;
+  background-color: aliceblue;
+}
+
+.expenses-list{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:20px;
+}
+
+.expenses-list div{
+  margin: 15px;
+  background-color:white;
+  padding: 40px;
+  border-radius: 30px;
+}
+
+.expenses-table {
+  margin: 20px auto;
+  background: white;
+  border-collapse: collapse;
+  width: 90%;
+  text-align: center; /* ✅ Centers all content */
+}
+
+.expenses-table th,
+.expenses-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap; 
+}
+
+.expenses-table th {
+  background-color: #f8f8f8;
+  font-weight: 600;
+}
+
+.expenses-table tr:hover {
+  background-color: #f2f2f2; 
+}
+
+.expenses-table td {
+  vertical-align: middle; 
+}
+
+
+.dashboard-skeleton{
+  padding:20px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-nav{
+  height:60px;
+  background:#e6e6e6;
+  border-radius:12px;
+  margin-bottom:30px;
+}
+
+.skeleton-cards{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.skeleton-cards div{
+  width:180px;
+  height:100px;
+  margin:15px;
+  background:#e6e6e6;
+  border-radius:30px;
+}
+
+.skeleton-table{
+  margin-top:30px;
+  margin-left:20px;
+}
+
+.skeleton-table .line{
+  height:40px;
+  width:90%;
+  background:#e6e6e6;
+  border-radius:12px;
+  margin-bottom:12px;
+}
+
+@keyframes pulse{
+  0%{opacity:1}
+  50%{opacity:.4}
+  100%{opacity:1}
+}

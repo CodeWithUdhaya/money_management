@@ -1,0 +1,14 @@
+/* Reset default margin/padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Make body fill viewport and remove scrollbar */
+body, html, #root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* optional: remove horizontal scroll */
+  overflow-y: auto;   /* vertical scroll only if needed */
+}
