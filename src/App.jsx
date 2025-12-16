@@ -6,7 +6,7 @@ import Dashboard from "./modules/UserModules/Dashboard";
 
 function App() {
   return (
-    <BrowserRouter>
+   <BrowserRouter basename="/money_management">
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
